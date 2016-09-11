@@ -81,12 +81,11 @@ int shell(int argc, char const *argv[])
         args.push_back(buf);
     }
     cmd = args[0];
-    cout << cmd << endl;
+      if (checkCommand(cmd, "befehl1") || checkCommand(cmd, "befehl2"))
+      {
+        befehl1(args);
+      }
 
-    if (checkCommand(cmd, "befehl1") || checkCommand(cmd, "befehl2"))
-    {
-      befehl1(args);
-    }
   }
 }
 
