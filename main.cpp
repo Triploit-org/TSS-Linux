@@ -72,20 +72,20 @@ int shell(int argc, char const *argv[])
     //bald wird hier der Hostname des pcs definiert
     std::cout << "\033[0m\033[1m\033[32m" << "[" << getenv("USER") << "@" << hostname << "]" << "$ " << "\033[0m";
     getline(cin, input);
+    if(input != "") {
+      stringstream ss(input);
+      string buf;
 
-    stringstream ss(input);
-    string buf;
-
-    while (ss >> buf)
-    {
-        args.push_back(buf);
-    }
-    cmd = args[0];
-      if (checkCommand(cmd, "befehl1") || checkCommand(cmd, "befehl2"))
+      while (ss >> buf)
       {
-        befehl1(args);
+          args.push_back(buf);
       }
-
+      cmd = args[0];
+        if (checkCommand(cmd, "befehl1") || checkCommand(cmd, "befehl2"))
+        {
+          befehl1(args);
+        }
+    }
   }
 }
 
